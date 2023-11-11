@@ -16,7 +16,8 @@
 		"vscode": {
 			"extensions": [
 				"vmware.vscode-spring-boot",
-				"redhat.vscode-xml"
+				"redhat.vscode-xml",
+				"mhutchie.git-graph"
 			]
 		}
 	}
