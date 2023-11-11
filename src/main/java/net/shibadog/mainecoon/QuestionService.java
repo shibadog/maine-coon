@@ -2,6 +2,9 @@ package net.shibadog.mainecoon;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import lombok.Getter;
+import net.shibadog.mainecoon.QuestionService.Siki.Operation;
+
 public class QuestionService {
     
     public Question additionCarry(int digit) {
@@ -12,7 +15,7 @@ public class QuestionService {
             x2 = generateNumber(digit);
         } while(!hasCarry(x1, x2));
         
-        return new Question(new Siki(x1, x2, "+"));
+        return new Question(new Siki(x1, x2, Operation.PLUS));
     }
     
     public Question subtractionBorrow(int digit) {
@@ -24,14 +27,14 @@ public class QuestionService {
             x2 = generateNumber(digit);
         } while(Integer.valueOf(x1) < Integer.valueOf(x2) || !hasBorrow(x1, x2));
 
-        return new Question(new Siki(x1, x2, "-"));
+        return new Question(new Siki(x1, x2, Operation.MINUS));
     }
 
     public Question multiplication() {
         String x1 = generateNumber(1);
         String x2 = generateNumber(1);
 
-        return new Question(new Siki(x1, x2, "*"));
+        return new Question(new Siki(x1, x2, Operation.KAKERU));
     }
 
     public Question divisionRemainder() {
@@ -44,7 +47,7 @@ public class QuestionService {
         } while(Integer.valueOf(x1) % Integer.valueOf(x2) != 0 
                 || Integer.toString(Integer.valueOf(x1) / Integer.valueOf(x2)).length() > 1);
 
-        return new Question(new Siki(x1, x2, "/"));
+        return new Question(new Siki(x1, x2, Operation.WARU));
     }
 
     String generateNumber(int digit) {
@@ -111,13 +114,13 @@ public class QuestionService {
     ) {
         public String answer() {
             switch(siki().operation) {
-                case "+":
+                case PLUS:
                     return Integer.toString(Integer.valueOf(siki.x1) + Integer.valueOf(siki.x2));
-                case "-":
+                case MINUS:
                     return Integer.toString(Integer.valueOf(siki.x1) - Integer.valueOf(siki.x2));
-                case "*":
+                case KAKERU:
                     return Integer.toString(Integer.valueOf(siki.x1) * Integer.valueOf(siki.x2));
-                case "/":
+                case WARU:
                     return Integer.toString(Integer.valueOf(siki.x1) / Integer.valueOf(siki.x2));
                 default:
                     throw new IllegalArgumentException();
@@ -128,7 +131,7 @@ public class QuestionService {
     public static record Siki(
         String x1,
         String x2,
-        String operation
+        Operation operation
     ) {
         private static final String space = " ";
 
@@ -136,5 +139,23 @@ public class QuestionService {
         public String toString() {
             return x1 + space + operation + space + x2 + space + "=" + space;
         }
+
+        public static enum Operation {
+            PLUS("＋"),
+            MINUS("－"),
+            KAKERU("×"),
+            WARU("÷"),
+            ;
+            @Getter
+            private final String value;
+            private Operation(String value) {
+                this.value = value;
+            }
+            @Override
+            public String toString() {
+                return this.value;
+            }
+        }
+
     }
 }
