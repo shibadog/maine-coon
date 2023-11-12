@@ -15,12 +15,16 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"vmware.vscode-spring-boot",
 				"redhat.vscode-xml",
-				"mhutchie.git-graph"
+				"mhutchie.git-graph",
+				"humao.rest-client",
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint",
+				"streetsidesoftware.code-spell-checker",
+				"vmware.vscode-boot-dev-pack"
 			]
 		}
-	}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
@@ -33,4 +37,8 @@
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
+	
+	"mounts": [
+		"source=${localEnv:USERPROFILE}/.m2,target=/home/vscode/.m2,type=bind,consistency=cached"
+	]
 }
