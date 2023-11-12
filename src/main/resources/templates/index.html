@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script th:src="@{/webjars/pagedjs/dist/paged.polyfill.min.js}" 
+            src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"
+            defer></script>
+    <style>
+        @page{
+            size:607px 430px;
+            marks:crop;
+            bleed:0.5em;
+            margin:0.3em;
+        } 
+
+        .break{
+            page-break-after: always;
+            break-after: always;
+        }
+
+        .head{
+            margin-bottom: .5rem;
+            text-align: right ;
+        }
+
+        body {
+            font-size: 27px;
+            font-family:"BIZ UDGothic";
+        }
+
+        .under {
+            border-bottom: solid 0.2em #87CEFA;
+        }
+
+        ol {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding-top: 2.0em;
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+            letter-spacing: 0.1em;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .container > * {
+            padding: 0px;
+            margin: 0 0px;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="head"><b class="under">やった日：&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;なまえ：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+    <div class="container" th:object="${questions}">
+        <ol>
+            <li class="under" th:each="question : *{plus}" th:text="${question.siki}">4&plus;8&equals;</li>
+            <li class="under" th:remove="all">5&plus;8&equals;</li>
+            <li class="under" th:remove="all">5&plus;7&equals;</li>
+            <li class="under" th:remove="all">7&plus;6&equals;</li>
+        </ol>
+        <ol>
+            <li class="under" th:each="question : *{minus}" th:text="${question.siki}">81&minus;7&equals;</li>
+            <li class="under" th:remove="all">51&minus;3&equals;</li>
+            <li class="under" th:remove="all">60&minus;3&equals;</li>
+            <li class="under" th:remove="all">26&minus;8&equals;</li>
+        </ol>
+        <ol>
+            <li class="under" th:each="question : *{times}" th:text="${question.siki}">6&times;8&equals;</li>
+            <li class="under" th:remove="all">2&times;6&equals;</li>
+            <li class="under" th:remove="all">8&times;4&equals;</li>
+            <li class="under" th:remove="all">1&times;2&equals;</li>
+        </ol>
+        <ol>
+            <li class="under" th:each="question : *{divide}" th:text="${question.siki}">24&divide;6&equals;</li>
+            <li class="under" th:remove="all">12&divide;6&equals;</li>
+            <li class="under" th:remove="all">42&divide;7&equals;</li>
+            <li class="under" th:remove="all">21&divide;7&equals;</li>
+        </ol>
+    </div>
+    <div class="break">
+    </div>
+        <div class="container" th:object="${questions}">
+        <ol>
+            <li class="under" th:each="question : *{plus}" th:text="${question.answer}">4</li>
+            <li class="under" th:remove="all">5</li>
+            <li class="under" th:remove="all">5</li>
+            <li class="under" th:remove="all">7</li>
+        </ol>
+        <ol>
+            <li class="under" th:each="question : *{minus}" th:text="${question.answer}">81</li>
+            <li class="under" th:remove="all">51</li>
+            <li class="under" th:remove="all">60</li>
+            <li class="under" th:remove="all">26</li>
+        </ol>
+        <ol>
+            <li class="under" th:each="question : *{times}" th:text="${question.answer}">6</li>
+            <li class="under" th:remove="all">2</li>
+            <li class="under" th:remove="all">8</li>
+            <li class="under" th:remove="all">1</li>
+        </ol>
+        <ol>
+            <li class="under" th:each="question : *{divide}" th:text="${question.answer}">24</li>
+            <li class="under" th:remove="all">12</li>
+            <li class="under" th:remove="all">42</li>
+            <li class="under" th:remove="all">21</li>
+        </ol>
+    </div>
+</body>
+</html>

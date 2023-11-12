@@ -21,7 +21,8 @@
 				"yzhang.markdown-all-in-one",
 				"DavidAnson.vscode-markdownlint",
 				"streetsidesoftware.code-spell-checker",
-				"vmware.vscode-boot-dev-pack"
+				"vmware.vscode-boot-dev-pack",
+				"george-alisson.html-preview-vscode"
 			]
 		}
 	},

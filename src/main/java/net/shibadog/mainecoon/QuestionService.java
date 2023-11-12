@@ -2,9 +2,12 @@ package net.shibadog.mainecoon;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.springframework.stereotype.Service;
+
 import lombok.Getter;
 import net.shibadog.mainecoon.QuestionService.Siki.Operation;
 
+@Service
 public class QuestionService {
     
     public Question additionCarry(int digit) {
@@ -90,8 +93,8 @@ public class QuestionService {
         // 桁ごとに比較
         for (int i = 0; i < maxLength; i++) {
             // 各桁の数字を取得
-            int digit1 = getDigit(num1, i);
-            int digit2 = getDigit(num2, i);
+            int digit1 = getDigit(String.format("%0" + maxLength + "d", Integer.valueOf(num1)), i);
+            int digit2 = getDigit(String.format("%0" + maxLength + "d", Integer.valueOf(num2)), i);
 
             // 引き算して繰り下がりがあるかどうかを判定
             int difference = digit1 - digit2 - (borrow ? 1 : 0);
@@ -113,7 +116,7 @@ public class QuestionService {
         Siki siki
     ) {
         public String answer() {
-            switch(siki().operation) {
+            switch(siki.operation) {
                 case PLUS:
                     return Integer.toString(Integer.valueOf(siki.x1) + Integer.valueOf(siki.x2));
                 case MINUS:
@@ -133,7 +136,7 @@ public class QuestionService {
         String x2,
         Operation operation
     ) {
-        private static final String space = " ";
+        private static final String space = "";
 
         @Override
         public String toString() {
