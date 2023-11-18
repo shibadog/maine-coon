@@ -1,3 +1,0 @@
-# maine coon
-
-## overview

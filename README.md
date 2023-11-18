@@ -7,3 +7,5 @@
 ``` bash
 > flyctl launch
 ```
+
+![](docs/images/deploy.drawio.png)
