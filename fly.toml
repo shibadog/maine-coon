@@ -13,7 +13,7 @@ primary_region = "nrt"
     BPE_BPL_JVM_THREAD_COUNT = "30"
     BPE_DELIM_JAVA_TOOL_OPTIONS = " "
     BPE_SERVER_TOMCAT_THREADS_MAX = "10"
-    BP_JVM_VERSION = "17"
+    BP_JVM_VERSION = "21"
 
 [http_service]
   internal_port = 8080
