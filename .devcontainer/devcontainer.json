@@ -9,10 +9,12 @@
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
 		"ghcr.io/devcontainers/features/java:1": {
-			"version": "17"
-		}
+			"version": "21",
+			"jdkDistro": "librca"
+		},
+		"ghcr.io/devcontainers-contrib/features/act-asdf:2": {}
 	},
-	"customizations": {
+	"customizations": { 
 		"vscode": {
 			"extensions": [
 				"redhat.vscode-xml",
