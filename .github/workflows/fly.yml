@@ -2,7 +2,7 @@ name: Fly Deploy
 on:
   workflow_run:
     workflows:
-      - "maven"
+      - "Java CI with Maven"
     branches:
       - main
     types:
