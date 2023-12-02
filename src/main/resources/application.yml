@@ -1,6 +1,6 @@
 server:
   tomcat:
-    threads.max: 20
+    threads.max: 2
     mbeanregistry.enabled: true
 
 management:

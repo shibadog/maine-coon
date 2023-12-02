@@ -10,9 +10,9 @@ primary_region = "nrt"
   builder = "paketobuildpacks/builder-jammy-base:0.4.252"
   [build.args]
     BPE_APPEND_JAVA_TOOL_OPTIONS = "-XX:ReservedCodeCacheSize=30M -Xss256k"
-    BPE_BPL_JVM_THREAD_COUNT = "30"
+    BPE_BPL_JVM_THREAD_COUNT = "10"
     BPE_DELIM_JAVA_TOOL_OPTIONS = " "
-    BPE_SERVER_TOMCAT_THREADS_MAX = "10"
+    BPE_SERVER_TOMCAT_THREADS_MAX = "2"
     BP_JVM_VERSION = "21"
 
 [http_service]
